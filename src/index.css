@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Tes styles custom ici si besoin */
+@theme {
+  --color-primary: #0ea5e9;  /* Exemple d'extension de thème directement en CSS */
+}
+
+body {
+  @apply bg-gray-950 text-gray-100;
+}
