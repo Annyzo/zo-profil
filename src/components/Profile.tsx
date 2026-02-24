@@ -19,7 +19,7 @@ const Profile = () => {
   return (
     <section className="space-y-12">
       {/* Hero Section with Gradient */}
-      <div className={`relative rounded-lg overflow-hidden p-6 md:p-12 ${isDark ? 'bg-gradient-to-r from-cyan-600 to-teal-500' : 'bg-gradient-to-r from-cyan-400 to-teal-400'}`}>
+      <div className={`relative rounded-lg overflow-hidden p-12 ${isDark ? 'bg-gradient-to-r from-cyan-600 to-teal-500' : 'bg-gradient-to-r from-cyan-400 to-teal-400'}`}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="text-white space-y-4">
             <p className="text-lg font-semibold opacity-90">{t('profile.greeting')}</p>
@@ -46,7 +46,7 @@ const Profile = () => {
 
           {/* Photo */}
           <div className="flex justify-center">
-            <div className={`relative w-64 h-72 md:w-80 md:h-96 rounded-[15px] border-4 border-white overflow-hidden shadow-2xl ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}>
+            <div className={`relative w-80 h-96 rounded-[15px] border-4 border-white overflow-hidden shadow-2xl ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}>
               <img 
                 src="/img/zo _profil.png" 
                 alt="Anny Zo" 
@@ -113,8 +113,8 @@ const Profile = () => {
           <div className="space-y-4">
             <p className={`leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
               {language === 'fr'
-                ? 'Développeur passionné avec 8+ années d\'expérience en développement full stack. Spécialisé en React, Node.js, Symfony et technologies blockchain, j\'ai mené des projets complexes du concept à la production.'
-                : 'Passionate developer with 8+ years of experience in full stack development. Specialized in React, Node.js, Symfony and blockchain technologies, I have led complex projects from concept to production.'
+                ? 'Développeur passionné avec 8+ années d\'expérience en développement full stack. Spécialisé en React, Node.js et technologies blockchain, j\'ai mené des projets complexes du concept à la production.'
+                : 'Passionate developer with 8+ years of experience in full stack development. Specialized in React, Node.js and blockchain technologies, I have led complex projects from concept to production.'
               }
             </p>
             <p className={`leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { ThemeProvider, useTheme } from './ThemeContext';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Profile from './components/Profile';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
@@ -13,7 +13,6 @@ function AppContent() {
   const isDark = theme === 'dark';
   const bgClass = isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900';
   const headerClass = isDark ? 'bg-gray-800 border-b border-cyan-500' : 'bg-gray-50 border-b border-cyan-300';
-  const [menuOpen, setMenuOpen] = useState(false);
 
   // Update page title
   useEffect(() => {
@@ -36,24 +35,16 @@ function AppContent() {
             </span>
           </Link>
           
-          <ul className="hidden md:flex space-x-8 items-center text-gray-700 dark:text-gray-300">
-            <li><Link to="/" onClick={() => setMenuOpen(false)} className="hover:text-cyan-500 font-medium transition">{t('nav.profile')}</Link></li>
-            <li><Link to="/skills" onClick={() => setMenuOpen(false)} className="hover:text-cyan-500 font-medium transition">{t('nav.skills')}</Link></li>
-            <li><Link to="/experience" onClick={() => setMenuOpen(false)} className="hover:text-cyan-500 font-medium transition">{t('nav.experience')}</Link></li>
-            <li><Link to="/education" onClick={() => setMenuOpen(false)} className="hover:text-cyan-500 font-medium transition">{t('nav.education')}</Link></li>
-            <li><Link to="/contact" onClick={() => setMenuOpen(false)} className="hover:text-cyan-500 font-medium transition">{t('nav.contact')}</Link></li>
+          <ul className="flex space-x-8 items-center text-gray-700 dark:text-gray-300">
+            <li><Link to="/" className="hover:text-cyan-500 font-medium transition">{t('nav.profile')}</Link></li>
+            <li><Link to="/skills" className="hover:text-cyan-500 font-medium transition">{t('nav.skills')}</Link></li>
+            <li><Link to="/experience" className="hover:text-cyan-500 font-medium transition">{t('nav.experience')}</Link></li>
+            <li><Link to="/education" className="hover:text-cyan-500 font-medium transition">{t('nav.education')}</Link></li>
+            <li><Link to="/contact" className="hover:text-cyan-500 font-medium transition">{t('nav.contact')}</Link></li>
           </ul>
 
           {/* Controls */}
           <div className="flex gap-4 items-center">
-            {/* Mobile menu toggle */}
-            <button
-              onClick={() => setMenuOpen(prev => !prev)}
-              aria-label="Toggle menu"
-              className="md:hidden px-3 py-2 rounded border border-cyan-500 hover:bg-cyan-500 hover:text-white transition"
-            >
-              {menuOpen ? '✕' : '☰'}
-            </button>
             {/* Language Toggle */}
             <select 
               value={language}
@@ -74,21 +65,6 @@ function AppContent() {
           </div>
         </nav>
       </header>
-
-      {/* Mobile menu (small screens) */}
-      {menuOpen && (
-        <div className={`${isDark ? 'bg-gray-800' : 'bg-gray-50'} md:hidden border-b border-cyan-300`}>
-          <div className="max-w-7xl mx-auto px-4 py-4">
-            <ul className="flex flex-col space-y-2">
-              <li><Link to="/" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded hover:bg-cyan-100 dark:hover:bg-gray-700">{t('nav.profile')}</Link></li>
-              <li><Link to="/skills" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded hover:bg-cyan-100 dark:hover:bg-gray-700">{t('nav.skills')}</Link></li>
-              <li><Link to="/experience" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded hover:bg-cyan-100 dark:hover:bg-gray-700">{t('nav.experience')}</Link></li>
-              <li><Link to="/education" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded hover:bg-cyan-100 dark:hover:bg-gray-700">{t('nav.education')}</Link></li>
-              <li><Link to="/contact" onClick={() => setMenuOpen(false)} className="block px-3 py-2 rounded hover:bg-cyan-100 dark:hover:bg-gray-700">{t('nav.contact')}</Link></li>
-            </ul>
-          </div>
-        </div>
-      )}
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 py-12">
