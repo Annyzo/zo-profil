@@ -30,21 +30,21 @@ const Contact = () => {
       {/* Header */}
       <div className="text-center">
         <h2 className="text-4xl font-bold text-cyan-500 mb-4">{t('contact.title')}</h2>
-        <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>Contactez-moi pour discuter de vos projets</p>
+        <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>{t('contact.subtitle')}</p>
       </div>
 
       {/* Contact CTA Section */}
-      <div className={`relative rounded-lg p-12 ${isDark ? 'bg-gradient-to-r from-cyan-600 to-teal-500' : 'bg-gradient-to-r from-cyan-400 to-teal-400'}`}>
+      <div className={`relative rounded-lg p-6 md:p-12 ${isDark ? 'bg-gradient-to-r from-cyan-600 to-teal-500' : 'bg-gradient-to-r from-cyan-400 to-teal-400'}`}>
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-white flex-1">
-            <h3 className="text-3xl font-bold mb-2">CONTACTEZ-MOI POUR VOTRE AWESOME PROJECT</h3>
-            <p className="opacity-90">Parlons de vos idées et comment je peux les concrétiser</p>
+            <h3 className="text-3xl font-bold mb-2">{t('contact.ctaTitle')}</h3>
+            <p className="opacity-90">{t('contact.ctaDesc')}</p>
           </div>
-          <a 
+          <a
             href="mailto:rannyzo94@gmail.com"
             className={`px-8 py-3 rounded font-bold transition whitespace-nowrap ${isDark ? 'bg-gray-900 hover:bg-gray-800 text-cyan-500' : 'bg-white hover:bg-gray-100 text-cyan-600'}`}
           >
-            EMBAUCHEZ-MOI
+            {t('contact.hireMe')}
           </a>
         </div>
       </div>
@@ -55,7 +55,7 @@ const Contact = () => {
         <div className="space-y-6">
           <div className={`p-6 rounded-lg ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
             <h4 className="text-cyan-500 font-semibold mb-3 flex items-center gap-2">
-              <span className="text-2xl">📧</span> Email
+              <span className="text-2xl">📧</span> {t('contact.email')}
             </h4>
             <a href="mailto:rannyzo94@gmail.com" className="text-cyan-400 hover:text-cyan-300 font-semibold break-all">
               rannyzo94@gmail.com
@@ -64,7 +64,7 @@ const Contact = () => {
 
           <div className={`p-6 rounded-lg ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
             <h4 className="text-cyan-500 font-semibold mb-3 flex items-center gap-2">
-              <span className="text-2xl">📱</span> Téléphone
+              <span className="text-2xl">📱</span> {t('contact.phone')}
             </h4>
             <a href="tel:+261348513535" className="text-cyan-400 hover:text-cyan-300 font-semibold">
               +261 34 85 135 35
@@ -73,20 +73,20 @@ const Contact = () => {
 
           <div className={`p-6 rounded-lg ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
             <h4 className="text-cyan-500 font-semibold mb-3 flex items-center gap-2">
-              <span className="text-2xl">📍</span> Localisation
+              <span className="text-2xl">📍</span> {t('contact.location')}
             </h4>
             <p className={isDark ? 'text-gray-300' : 'text-gray-700'}>Antananarivo, Madagascar</p>
-            <p className={`text-sm mt-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Disponible pour missions remote</p>
+            <p className={`text-sm mt-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{t('contact.available')}</p>
           </div>
 
           <div className={`p-6 rounded-lg ${isDark ? 'bg-gray-800' : 'bg-gray-50'}`}>
             <h4 className="text-cyan-500 font-semibold mb-3 flex items-center gap-2">
-              <span className="text-2xl">🔗</span> Réseaux
+              <span className="text-2xl">🔗</span> {t('contact.networks')}
             </h4>
-            <a 
-              href="https://www.linkedin.com/in/anny-zo-r-324b091a0" 
-              className="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-2" 
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/in/anny-zo-r-324b091a0"
+              className="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-2"
+              target="_blank"
               rel="noopener noreferrer"
             >
               LinkedIn <span className="text-xs">↗</span>
@@ -106,7 +106,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 className={`w-full px-4 py-3 rounded border-2 border-cyan-500 focus:outline-none focus:border-teal-400 ${isDark ? 'bg-gray-700 text-white' : 'bg-white text-gray-900'}`}
-                placeholder="Your name"
+                placeholder={t('contact.namePlaceholder')}
               />
             </div>
 
@@ -119,7 +119,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 className={`w-full px-4 py-3 rounded border-2 border-cyan-500 focus:outline-none focus:border-teal-400 ${isDark ? 'bg-gray-700 text-white' : 'bg-white text-gray-900'}`}
-                placeholder="your@email.com"
+                placeholder={t('contact.emailPlaceholder')}
               />
             </div>
 
@@ -132,7 +132,7 @@ const Contact = () => {
                 required
                 rows={5}
                 className={`w-full px-4 py-3 rounded border-2 border-cyan-500 focus:outline-none focus:border-teal-400 resize-none ${isDark ? 'bg-gray-700 text-white' : 'bg-white text-gray-900'}`}
-                placeholder="Your message..."
+                placeholder={t('contact.messagePlaceholder')}
               />
             </div>
 
@@ -145,7 +145,7 @@ const Contact = () => {
 
             {submitted && (
               <div className="bg-green-500/20 border border-green-500 text-green-400 p-3 rounded text-center font-semibold">
-                ✓ Message sent successfully!
+                {t('contact.success')}
               </div>
             )}
           </form>

@@ -1,7 +1,7 @@
 import { useTheme } from '../ThemeContext';
 
 const Skills = () => {
-  const { theme, t } = useTheme();
+  const { theme, t, language } = useTheme();
   const isDark = theme === 'dark';
 
   const interests = [
@@ -32,22 +32,22 @@ const Skills = () => {
       { name: 'Laravel', level: 82 },
       { name: 'NestJS', level: 80 },
     ],
-    'Bases de Données': [
+    [t('skills.categories.databases')]: [
       { name: 'PostgreSQL', level: 90 },
       { name: 'MySQL', level: 88 },
       { name: 'MongoDB', level: 85 },
       { name: 'Redis', level: 80 },
-      { name: 'SQL Avancé', level: 88 },
+      { name: language === 'fr' ? 'SQL Avancé' : 'Advanced SQL', level: 88 },
     ],
-    'DevOps & Tools': [
+    [t('skills.categories.devops')]: [
       { name: 'Docker', level: 85 },
       { name: 'Git & GitHub', level: 95 },
       { name: 'CI/CD', level: 82 },
       { name: 'Linux/Bash', level: 85 },
-      { name: 'API REST', level: 92 },
+      { name: language === 'fr' ? 'API REST' : 'REST API', level: 92 },
       { name: 'GraphQL', level: 75 },
     ],
-    'Smart Contracts & Blockchain': [
+    [t('skills.categories.blockchain')]: [
       { name: 'Solidity', level: 80 },
       { name: 'Web3.js', level: 75 },
       { name: 'Ethers.js', level: 78 },
@@ -68,7 +68,7 @@ const Skills = () => {
       <div className="text-center">
         <h2 className="text-4xl font-bold text-cyan-500 mb-2">{t('skills.title')}</h2>
         <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>
-          Compétences développées au fil de 8+ années d'expérience
+          {t('skills.subtitle')}
         </p>
       </div>
 
@@ -77,7 +77,7 @@ const Skills = () => {
         <h3 className="text-2xl font-bold text-cyan-500 mb-6 text-center">{t('skills.interests')}</h3>
         <div className="flex flex-wrap justify-center gap-4">
           {interests.map((interest) => (
-            <div 
+            <div
               key={interest.label}
               className={`flex flex-col items-center gap-2 p-4 rounded-lg ${isDark ? 'bg-gray-700 border border-cyan-500/50 hover:bg-cyan-500/20' : 'bg-white border border-cyan-400 hover:bg-cyan-50'} cursor-pointer transition text-center`}
             >
@@ -105,7 +105,7 @@ const Skills = () => {
                     <span className="text-cyan-500 font-bold">{skill.level}%</span>
                   </div>
                   <div className={`h-3 rounded-full overflow-hidden ${isDark ? 'bg-gray-700' : 'bg-gray-300'}`}>
-                    <div 
+                    <div
                       className="h-full bg-gradient-to-r from-cyan-500 to-teal-400 transition-all duration-700"
                       style={{ width: `${skill.level}%` }}
                     ></div>
@@ -119,16 +119,15 @@ const Skills = () => {
 
       {/* Technology Stack */}
       <div className={`p-8 rounded-lg border-2 border-cyan-500 ${isDark ? 'bg-gray-900' : 'bg-white'}`}>
-        <h3 className="text-2xl font-bold text-cyan-500 mb-6">Stack Technologique Complet</h3>
+        <h3 className="text-2xl font-bold text-cyan-500 mb-6">{t('skills.stack')}</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {technologies.map((tech) => (
-            <span 
-              key={tech} 
-              className={`px-4 py-2 rounded border-2 border-cyan-500 text-center font-semibold transition cursor-pointer ${
-                isDark 
-                  ? 'bg-gray-800 text-cyan-400 hover:bg-cyan-500 hover:text-gray-900' 
-                  : 'bg-white text-cyan-600 hover:bg-cyan-500 hover:text-white'
-              }`}
+            <span
+              key={tech}
+              className={`px-4 py-2 rounded border-2 border-cyan-500 text-center font-semibold transition cursor-pointer ${isDark
+                ? 'bg-gray-800 text-cyan-400 hover:bg-cyan-500 hover:text-gray-900'
+                : 'bg-white text-cyan-600 hover:bg-cyan-500 hover:text-white'
+                }`}
             >
               {tech}
             </span>
@@ -140,19 +139,19 @@ const Skills = () => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className={`p-6 rounded-lg text-center ${isDark ? 'bg-gray-800 border border-cyan-500/50' : 'bg-gradient-to-br from-cyan-50 to-teal-50 border border-cyan-200'}`}>
           <p className="text-3xl font-bold text-cyan-500">15+</p>
-          <p className={`text-sm mt-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Langages</p>
+          <p className={`text-sm mt-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{t('skills.languages')}</p>
         </div>
         <div className={`p-6 rounded-lg text-center ${isDark ? 'bg-gray-800 border border-cyan-500/50' : 'bg-gradient-to-br from-cyan-50 to-teal-50 border border-cyan-200'}`}>
           <p className="text-3xl font-bold text-cyan-500">30+</p>
-          <p className={`text-sm mt-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Technologies</p>
+          <p className={`text-sm mt-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{t('skills.technologies')}</p>
         </div>
         <div className={`p-6 rounded-lg text-center ${isDark ? 'bg-gray-800 border border-cyan-500/50' : 'bg-gradient-to-br from-cyan-50 to-teal-50 border border-cyan-200'}`}>
           <p className="text-3xl font-bold text-cyan-500">8+</p>
-          <p className={`text-sm mt-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Ans Expérience</p>
+          <p className={`text-sm mt-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{t('skills.yearsExperience')}</p>
         </div>
         <div className={`p-6 rounded-lg text-center ${isDark ? 'bg-gray-800 border border-cyan-500/50' : 'bg-gradient-to-br from-cyan-50 to-teal-50 border border-cyan-200'}`}>
           <p className="text-3xl font-bold text-cyan-500">100%</p>
-          <p className={`text-sm mt-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Passion</p>
+          <p className={`text-sm mt-1 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{t('skills.passion')}</p>
         </div>
       </div>
     </section>
